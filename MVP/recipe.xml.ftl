@@ -4,6 +4,27 @@
     <#include "common/recipe_simple.xml.ftl" />
     <#include "common/recipe_app_bar.xml.ftl" />
 
+    <#if createBaseClasses>
+        <instantiate from="root/src/app_package/AbsBasePresenter.java.ftl"
+                    to="${escapeXmlAttribute(srcOut)}/presenter/base/AbsBasePresenter.java" />
+
+        <open file="${escapeXmlAttribute(srcOut)}/presenter/base/AbsBasePresenter.java" />
+
+        <instantiate from="root/src/app_package/BasePresenter.java.ftl"
+                        to="${escapeXmlAttribute(srcOut)}/presenter/base/BasePresenter.java" />
+
+        <open file="${escapeXmlAttribute(srcOut)}/presenter/base/BasePresenter.java" />
+
+        <instantiate from="root/src/app_package/ProgressView.java.ftl"
+                        to="${escapeXmlAttribute(srcOut)}/view/base/ProgressView.java" />
+
+        <open file="${escapeXmlAttribute(srcOut)}/view/base/ProgressView.java" />
+
+        <instantiate from="root/src/app_package/BaseActivity.java.ftl"
+                    to="${escapeXmlAttribute(srcOut)}/activity/base/BaseActivity.java" />
+
+        <open file="${escapeXmlAttribute(srcOut)}/activity/base/BaseActivity.java" />
+    </#if>
 
     <instantiate from="root/src/app_package/BasicPresenter.java.ftl"
                 to="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}Presenter.java" />
@@ -20,7 +41,7 @@
 
     <open file="${escapeXmlAttribute(srcOut)}/view/${activityClass}View.java" />
 
-    <instantiate from="root/src/app_package/SimpleActivity.java.ftl"
+    <instantiate from="root/src/app_package/BasicActivity.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/activity/${activityClass}Activity.java" />
 
     <open file="${escapeXmlAttribute(srcOut)}/activity/${activityClass}Activity.java" />

@@ -69,6 +69,13 @@
         type="boolean"/>
 
     <parameter
+        name="Create base MVP classes?"
+        default="false"
+        help="Create base MVP classes: BaseActivity, BasePresenter, AbsBasePresenter, ProgressView"
+        id="createBaseClasses"
+        type="boolean"/>
+
+    <parameter
         name="Menu Resource Name"
         constraints="layout|unique|nonempty"
         default="menu_main"
