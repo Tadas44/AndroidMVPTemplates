@@ -1,11 +1,12 @@
 # Android MVP templates
 Android Studio templates for MVP pattern
 
-# Templates
+## Templates
 ### MVP Activity Skeleton - MVP skeleton based on Activity
 
 
-### How to use?
+## How to use?
+### Easy way
 - Clone repository
 - Execute `copy.sh`
 
