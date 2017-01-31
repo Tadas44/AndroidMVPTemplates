@@ -5,7 +5,7 @@
 TMP_PATH=`pwd`
 TEMPLATES_PATH="/Applications/Android Studio.app/Contents/plugins/android/lib/templates/other"
 
-DIRS=`find $TMP_PATH -type d -maxdepth 1 -not -name '.*' -not -path $TMP_PATH`
+DIRS=`find $TMP_PATH -type d -maxdepth 1 -not -name '.*' -not -path $TMP_PATH -not -name 'img'`
 
 for f in $DIRS
 do
