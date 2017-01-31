@@ -1,29 +1,41 @@
 <?xml version="1.0"?>
 <recipe>
-    <instantiate from="root/src/app_package/BasicPresenter.kt.ftl"
-                to="${escapeXmlAttribute(srcOut)}/presenters/${className}Presenter.kt" />
+    <#include "common/recipe_manifest.xml.ftl" />
+    <#include "common/recipe_simple.xml.ftl" />
+    <#include "common/recipe_app_bar.xml.ftl" />
 
-    <open file="${escapeXmlAttribute(srcOut)}/presenters/${className}Presenter.kt" />
 
-    <instantiate from="root/src/app_package/BasicPresenterImpl.kt.ftl"
-                to="${escapeXmlAttribute(srcOut)}/presenters/${className}PresenterImpl.kt" />
+    <instantiate from="root/src/app_package/BasicPresenter.java.ftl"
+                to="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}Presenter.java" />
 
-    <open file="${escapeXmlAttribute(srcOut)}/presenters/${className}PresenterImpl.kt" />
+    <open file="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}Presenter.java" />
 
-    <instantiate from="root/src/app_package/BasicView.kt.ftl"
-                to="${escapeXmlAttribute(srcOut)}/views/${className}View.kt" />
+    <instantiate from="root/src/app_package/BasicPresenterImpl.java.ftl"
+                to="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}PresenterImpl.java" />
 
-    <open file="${escapeXmlAttribute(srcOut)}/views/${className}View.kt" />
+    <open file="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}PresenterImpl.java" />
+
+    <instantiate from="root/src/app_package/BasicView.java.ftl"
+                to="${escapeXmlAttribute(srcOut)}/view/${activityClass}View.java" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/view/${activityClass}View.java" />
+
+    <instantiate from="root/src/app_package/SimpleActivity.java.ftl"
+                       to="${escapeXmlAttribute(srcOut)}/activity/${activityClass}Activity.java" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/activity/${activityClass}Activity.java" />
+
+    <open file="${escapeXmlAttribute(resOut)}/layout/${simpleLayoutName}.xml" />
 
     <#if includeInteractor>
-        <instantiate from="root/src/app_package/BasicInteractor.kt.ftl"
-                    to="${escapeXmlAttribute(srcOut)}/interactors/${className}Interactor.kt" />
+        <instantiate from="root/src/app_package/BasicInteractor.java.ftl"
+                    to="${escapeXmlAttribute(srcOut)}/interactor/${activityClass}Interactor.java" />
 
-        <open file="${escapeXmlAttribute(srcOut)}/interactors/${className}Interactor.kt" />
+        <open file="${escapeXmlAttribute(srcOut)}/interactor/${activityClass}Interactor.java" />
 
-        <instantiate from="root/src/app_package/BasicInteractorImpl.kt.ftl"
-                  to="${escapeXmlAttribute(srcOut)}/interactors/${className}InteractorImpl.kt" />
+        <instantiate from="root/src/app_package/BasicInteractorImpl.java.ftl"
+                  to="${escapeXmlAttribute(srcOut)}/interactor/${activityClass}InteractorImpl.java" />
 
-        <open file="${escapeXmlAttribute(srcOut)}/interactors/${className}InteractorImpl.kt" />
+        <open file="${escapeXmlAttribute(srcOut)}/interactor/${activityClass}InteractorImpl.java" />
     </#if>
 </recipe>

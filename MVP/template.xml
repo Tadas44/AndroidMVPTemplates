@@ -1,40 +1,102 @@
 <?xml version="1.0"?>
 <template
+    name="MVP Activity Skeleton"
+    description="MVP skeleton based on Activity"
     format="5"
-    revision="1"
-    name="Vinted MVP"
-    description="Creates a basic MVP structure">
+    requireAppTheme="true"
+    revision="1">
 
-    <category value="Vinted" />
-    <formfactor value="Mobile" />
+    <category value="MVP"/>
+    <formfactor value="Mobile"/>
 
     <parameter
-        id="className"
         name="Feature Name"
+        constraints="class|unique|nonempty"
+        default="FeatureNameActivity"
+        help="The name of the activity, presenter, view, classes to create"
+        id="activityClass"
+        suggest="${layoutToActivity(layoutName)}"
+        type="string"/>
+
+    <parameter
+        name="Layout Name"
+        constraints="layout|unique|nonempty"
+        default="activity_featureName"
+        help="The name of the layout to create for the activity"
+        id="layoutName"
+        suggest="${activityToLayout(activityClass)}"
+        type="string"/>
+
+    <parameter
+        name="Title"
+        constraints="nonempty"
+        default="MainActivity"
+        help="The name of the activity. For launcher activities, the application title."
+        id="activityTitle"
+        suggest="${activityClass}"
+        type="string"/>
+
+    <parameter
+        name="Hierarchical Parent"
+        constraints="activity|exists|empty"
+        default=""
+        help="The hierarchical parent activity, used to provide a default implementation for the 'Up' button"
+        id="parentActivityClass"
+        type="string"/>
+
+    <parameter
+        name="Content Layout Name"
+        constraints="layout|unique"
+        default="content_featureName"
+        help="The name of the App Bar layout to create for the activity"
+        id="contentLayoutName"
+        suggest="${activityToLayout(activityClass, 'content')}"
         type="string"
-        constraints="class|nonempty|unique"
-        default="Vinted Fragment"
-        help="This will be base of MVP class name. I.e. _Invoice_Presenter" />
+        visibility="false"/>
 
     <parameter
-        id="includeInteractor"
-        name="Create MVP interactor?"
-        type="boolean"
-        default="true"
-        help="Generate an interactor for this presenter" />
-
-    <parameter
-        id="packageName"
         name="Package name"
-        type="string"
         constraints="package"
-        suggest="com.vinted.mvp"
-        default="com.vinted.mvp"/>
+        default="com.mycompany.myapp"
+        id="packageName"
+        type="string"/>
+
+    <parameter
+        name="Create MVP interactor?"
+        default="false"
+        help="Generate an interactor for this presenter"
+        id="includeInteractor"
+        type="boolean"/>
+
+    <parameter
+        name="Menu Resource Name"
+        constraints="layout|unique|nonempty"
+        default="menu_main"
+        help="The name of the resource file to create for the menu items"
+        id="menuName"
+        suggest="menu_${classToResource(activityClass)}"
+        type="string"
+        visibility="isNewProject!false"/>
+
+    <parameter
+        name="Launcher Activity"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"
+        id="isLauncher"
+        type="boolean"/>
+
+    <parameter
+        name="Use a Fragment"
+        default="false"
+        help="If true, the content will be a fragment"
+        id="useFragment"
+        type="boolean"
+        visibility="false"/>
 
     <thumbs>
-        <thumb>template_blank_fragment.png</thumb>
+        <thumb>template_basic_activity.png</thumb>
     </thumbs>
 
-    <globals file="globals.xml.ftl" />
-    <execute file="recipe.xml.ftl" />
+    <globals file="globals.xml.ftl"/>
+    <execute file="recipe.xml.ftl"/>
 </template>
