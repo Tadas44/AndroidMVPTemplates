@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1"
+    name="Vinted MVP"
+    description="Creates a basic MVP structure">
+
+    <category value="Vinted" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="className"
+        name="Feature Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="Vinted Fragment"
+        help="This will be base of MVP class name. I.e. _Invoice_Presenter" />
+
+    <parameter
+        id="includeInteractor"
+        name="Create MVP interactor?"
+        type="boolean"
+        default="true"
+        help="Generate an interactor for this presenter" />
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        suggest="com.vinted.mvp"
+        default="com.vinted.mvp"/>
+
+    <thumbs>
+        <thumb>template_blank_fragment.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+</template>
