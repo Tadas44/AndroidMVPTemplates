@@ -1,5 +1,9 @@
-# android-templates
-Android Studio templates for a better life
+# Android MVP templates
+Android Studio templates for MVP pattern
+
+# Templates
+### MVP Activity Skeleton - MVP skeleton based on Activity
+
 
 ### How to use?
 - Clone repository
@@ -9,4 +13,3 @@ Android Studio templates for a better life
 - Clone repository
 - Place it in `Mac -> Applications -> Android Studio -> Right Click Show Package Contents -> Contents -> plugins -> android -> lib -> templates -> other`
 - Restart Android Studio
-- Right click on Android Studio module, select `New` and look for template under `MVP` section
