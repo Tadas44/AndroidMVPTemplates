@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 <#if applicationPackage??>
 import ${applicationPackage}.R;
 </#if>
@@ -31,6 +30,7 @@ public class ${activityClass}Activity extends BaseActivity implements ${activity
         ButterKnife.bind(this);
 
        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+       toolbar.setTitle(R.string.${activityTitle});
        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
        //TODO initialize presenter here
